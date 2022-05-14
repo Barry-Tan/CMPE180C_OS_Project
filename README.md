@@ -12,7 +12,7 @@
 CMPE180C_OS_Project/OS_PROJECT/src/
 ```
 
-##### testing.java will run time and algorithm test for multithreading, single threading version of mergeSort and quickSort
+##### Main Unit Testing File: testing.java will run time and algorithm test for multithreading, single threading version of mergeSort and quickSort
 
 ##### File Detail:
   -insertionSort.java (pure insertionSort algorithm)
@@ -27,7 +27,9 @@ CMPE180C_OS_Project/OS_PROJECT/src/
   
   -sortProgram.java (make the full verison of each sort with smaller than threshold,use insertion sort)
   
-  - testing.java(unit testing main program)
+  -insertionTest.java, Merge/QuickSortSingleThreadingTest.java, Merge/QuickSortMultiThreadingTest.java(JUnit subtest)
+  
+  -testing.java(unit testing main program)
   
 ##### testing Result:
 ![Screenshot 2022-05-06 205727](https://user-images.githubusercontent.com/71656626/167237322-9e502946-b695-4832-ade2-0611ae73de29.png)
