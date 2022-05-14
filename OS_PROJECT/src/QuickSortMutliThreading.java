@@ -6,6 +6,7 @@ public class QuickSortMutliThreading
 
 	int start, end;
 	int[] arr;
+	public QuickSortMutliThreading(){}
 
 	public QuickSortMutliThreading(int start,int end,int[] arr)
 	{

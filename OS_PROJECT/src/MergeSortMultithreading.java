@@ -9,6 +9,7 @@ public class MergeSortMultithreading extends RecursiveAction {
     private int[] arr_origin;
     private int l, r;
 
+    MergeSortMultithreading(){}
 
     MergeSortMultithreading(int[] arr, int l, int r) {
         this.arr_origin = arr;
@@ -93,8 +94,6 @@ public class MergeSortMultithreading extends RecursiveAction {
                 j++;
                 k++;
             }
-
-
     }
 
 

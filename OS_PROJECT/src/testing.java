@@ -16,6 +16,7 @@ public class testing {
     public static boolean algorithm_test=true;
     public static boolean no_algorithm_test=false;
     public static boolean no_display_result=false;
+    
     public static void main(String[] args) throws Exception {
         //test array for sorting
         //create array for testing
@@ -23,13 +24,17 @@ public class testing {
         // Array for testing if algorithm is correct
         int[] arr_algr_test = {2,8,4,5,7,8,2,1,6,5};
 
-        // Array for testing time execution
-        int[] arr_random=new int[5000000]; 
-        int[] arr_sorted=new int[5000000];
-        int[] arr_des =new int[5000000];
+        // adjust this value for arrat size
+        int arraySize=1000000;
 
-        for(int i=0;i<arr_random.length;i++){
-            arr_random[i]=new Random().nextInt(1000000);
+        // Array for testing time execution
+        int[] arr_random_1=new int[arraySize];
+        int[] arr_sorted=new int[arraySize];
+        int[] arr_des =new int[arraySize];
+
+        // elements assignment
+        for(int i=0;i<arr_random_1.length;i++){
+            arr_random_1[i]=new Random().nextInt(1000000);
         }
 
         for(int i=0;i<arr_sorted.length;i++){
@@ -39,6 +44,15 @@ public class testing {
         for(int i=0;i<arr_des.length;i++){
             arr_des[i]=arr_des.length-i;
         }
+
+        //copy of declare array for different testing (since ascending sort array stay same, no need for clone())
+        int[] arr_random_2 = arr_random_1.clone();
+        int[] arr_random_3 = arr_random_1.clone();
+        int[] arr_random_4 = arr_random_1.clone();
+
+        int[] arr_des_2 = arr_des.clone();
+        int[] arr_des_3 = arr_des.clone();
+        int[] arr_des_4 = arr_des.clone();
 
         // algorithm testing
         SortProgram tc = new SortProgram();
@@ -64,10 +78,10 @@ public class testing {
 
         // Execution Time Testing
         System.out.println("\nRandom array,size=5 million");
-        timeTesting(arr_random, tc, type.singleMerge);
-        timeTesting(arr_random, tc, type.multiMerge);
-        timeTesting(arr_random, tc, type.singleQuick);
-        timeTesting(arr_random, tc, type.multiQuick);
+        timeTesting(arr_random_1, tc, type.singleMerge);
+        timeTesting(arr_random_2, tc, type.multiMerge);
+        timeTesting(arr_random_3, tc, type.singleQuick);
+        timeTesting(arr_random_4, tc, type.multiQuick);
 
         System.out.println("\nAlready Sorted Asceding Array, Size=5 million");
         timeTesting(arr_sorted, tc, type.singleMerge);
@@ -77,9 +91,9 @@ public class testing {
 
         System.out.println("\nAlready Sorted desceding Array, Size=5 million");
         timeTesting(arr_des, tc, type.singleMerge);
-        timeTesting(arr_des, tc, type.multiMerge);
-        timeTesting(arr_des, tc, type.singleQuick);
-        timeTesting(arr_des, tc, type.multiQuick);
+        timeTesting(arr_des_2, tc, type.multiMerge);
+        timeTesting(arr_des_3, tc, type.singleQuick);
+        timeTesting(arr_des_4, tc, type.multiQuick);
     }
 
     private enum type{
@@ -117,8 +131,6 @@ public class testing {
                 System.out.println("MultiMerge Time: "+(end-start)+"ms\n");  
                 break;
         }
-
-
         
     }
 
